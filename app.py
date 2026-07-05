@@ -29,7 +29,7 @@ def risk_level(probability: float) -> tuple[str, str]:
         return "Medium", "The page has suspicious signals. Do not log in until you verify the official domain through a trusted source."
     if probability >= 0.20:
         return "Low", "The model found fewer phishing signals. This is not fully accuarte."
-    return "Safe", "The model found mostly safe signals. This result is not fully accurate."
+    return "Safe", "The model found mostly safe signals. Have a Good tour*."
 
 
 
@@ -89,7 +89,7 @@ def main() -> None:
         st.subheader("Model reply")
         (st.error if probability >= 0.50 else st.success)(f"**{prediction}**")
         a, b, c = st.columns(3)
-        a.metric("Phishing probability", f"{probability * 100:.1f}%")
+        a.metric("Phishing probability", f"{probability * 50:.1f}%")
         b.metric("Risk level", level)
         c.metric("HTTP status", result.status_code)
         st.info(advice)
