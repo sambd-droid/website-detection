@@ -27,7 +27,8 @@ def risk_level(probability: float) -> tuple[str, str]:
         return "High", "Do not enter passwords, OTPs, card information, or personal data. Verify the domain independently."
     if probability >= 0.50:
         return "Medium", "The page has suspicious signals. Do not log in until you verify the official domain through a trusted source."
-    return "Low", "The model found fewer phishing signals. This is not proof that the site is safe."
+    if probability >= 0.20:
+        return "Low", "The model found fewer phishing signals. This is not fully accuarte."
 
 
 def page_title(html: str) -> str:
