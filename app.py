@@ -29,7 +29,8 @@ def risk_level(probability: float) -> tuple[str, str]:
         return "Medium", "The page has suspicious signals. Do not log in until you verify the official domain through a trusted source."
     if probability >= 0.20:
         return "Low", "The model found fewer phishing signals. This is not fully accuarte."
-     return "ok", "The model found  good signals. This is not fully accuarte."
+    return "Safe", "The model found mostly safe signals. This result is not fully accurate."
+
 
 
 def page_title(html: str) -> str:
