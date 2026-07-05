@@ -89,7 +89,7 @@ def main() -> None:
         st.subheader("Model reply")
         (st.error if probability >= 0.50 else st.success)(f"**{prediction}**")
         a, b, c = st.columns(3)
-        a.metric("Phishing probability", f"{probability * 50:.1f}%")
+        a.metric("Phishing probability", f"{probability * 10:.1f}%")
         b.metric("Risk level", level)
         c.metric("HTTP status", result.status_code)
         st.info(advice)
